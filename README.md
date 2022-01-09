@@ -1,3 +1,3 @@
 # chatapp
-- This Application help two person to chat.
--  It is written in php and mysql
+- This is chat application.
+-  It is written in php and mysql.
