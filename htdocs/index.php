@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat Bot</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="asset/css/style.css">
 </head>
 
 <body>
@@ -45,7 +45,7 @@
             </form>
         </section>
     </div>
-    <script src="javascript/signup.js"></script>
+    <script src="asset/js/signup.js"></script>
 </body>
 
 </html>
