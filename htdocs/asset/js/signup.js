@@ -7,8 +7,9 @@ form.onsubmit=(e)=>{
 }
 
 btn.onclick=()=>{
+    console.log("clicked");
     let xhr=new XMLHttpRequest();
-    xhr.open("POST","php/signup.php",true);
+    xhr.open("POST","_signup.php",true);
     xhr.onload=()=>{
         if(xhr.readyState===XMLHttpRequest.DONE){
             if(xhr.status===200){

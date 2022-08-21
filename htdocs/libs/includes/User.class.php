@@ -8,12 +8,12 @@ Class User{
         $this->conn=Database::getConnection();
     }
 
-    public function signup(){
-        $fname=escape_stringfun($_POST['fname']);
-        $lname=escape_stringfun($_POST['lname']);
-        $email=escape_stringfun($_POST['email']);
-        $password=escape_stringfun($_POST['password']);
-
+    public function signup($fname,$lname,$email,$password){
+        $fname=escape_stringfun($fname);
+        $lname=escape_stringfun($lname);
+        $email=escape_stringfun($email);
+        $password=escape_stringfun($password);
+        print_r($email);
         if (!empty($fname) && !empty($lname) && !empty($email) && !empty($password)) {
             if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 $sql=mysqli_query($this->conn, "select email from users where email='{$email}'");
@@ -32,7 +32,7 @@ Class User{
                         if (in_array($img_ext, $extension)==true) {
                             $time=time();
                             $new_img=$time.$img_name;
-                            if (copy($tmp_name, $_SERVER['DOCUMENT_ROOT']."asset/image/$new_img")) {
+                            if (copy($tmp_name, $_SERVER['DOCUMENT_ROOT']."/asset/image/$new_img")) {
                                 $status="Active";
                                 $random_id=rand(time(), 10000000);
 
@@ -43,33 +43,33 @@ Class User{
                                     if (mysqli_num_rows($sql3)>0) {
                                         $row=mysqli_fetch_assoc($sql3);
                                         $_SESSION['unique_id']=$row['unique_id'];
-                                        echo "success";
+                                        return "success";
                                     }
                                 } else {
-                                    echo "No record inserted";
+                                    return "No record inserted";
                                 }
                             } else {
-                                echo "Image not moved";
+                                return "Image not moved";
                             }
                         } else {
-                            echo "please select an image file .jpeg .jpg .png";
+                            return "please select an image file .jpeg .jpg .png";
                         }
                     } else {
-                        echo "Please select an image";
+                        return "Please select an image";
                     }
                 }
             } else {
-                echo " $email-Please enter valid email";
+                return " $email-Please enter valid email";
             }
         } else {
-            echo "Please enter all required fields";
+            return "Please enter all required fields";
         }
 
     }
 
-    public function login(){
-        $email=escape_stringfun($_POST['email']);
-        $password=escape_stringfun($_POST['password']);
+    public function login($email,$password){
+        $email=escape_stringfun($email);
+        $password=escape_stringfun($password);
 
         if (!empty($email)&&!empty($password)) {
             $sql=mysqli_query($this->conn, "select * from users where email='{$email}' and password='{$password}'");

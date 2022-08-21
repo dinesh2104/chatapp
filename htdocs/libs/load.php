@@ -1,17 +1,21 @@
 <?php
-//include_once("includes/Database.class.php");
+include_once("includes/Database.class.php");
+include_once("includes/Chat.class.php");
+include_once("includes/Session.class.php");
+include_once("includes/Usersession.class.php");
+include_once("includes/User.class.php");
 
-$data=scandir("includes/");
-foreach($data as $d){
-    if($d=='.' or $d=='..'){
-        continue;
-    }else{    
-        include_once('includes/'.$d);
-    }
-}
+
+// $data=scandir("includes/");
+// foreach($data as $d){
+//     if($d=='.' or $d=='..'){
+//         continue;
+//     }else{    
+//         include_once('includes/'.$d);
+//     }
+// }
 
 Session::start();
-
 
 $config_file=file_get_contents($_SERVER['DOCUMENT_ROOT']."/../workspace/env.json");
 // print($config_file);
