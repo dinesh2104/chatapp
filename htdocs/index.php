@@ -15,7 +15,7 @@
         <section class="form signup">
             <header>Realtime Chat App</header>
             <form action="#" enctype="multipart/form-data">
-                <div class="error-text"></div>
+                <div class="error-text" hidden></div>
                 <div class="name-details">
                     <div class="field">
                         <label>First Name</label>

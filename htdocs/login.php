@@ -15,7 +15,7 @@
         <section class="form login">
             <header>Realtime Chat App</header>
             <form action="#">
-                <div class="error-text"></div>
+                <div class="error-text" hidden></div>
                 <div class="field">
                     <label>Email</label>
                     <input type="text" name="email" placeholder="Email">

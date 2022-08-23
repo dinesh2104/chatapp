@@ -1,3 +1,6 @@
 <?php
 
-echo "Need to implement";
+include "libs/load.php";
+
+Session::unset();
+Session::destroy();

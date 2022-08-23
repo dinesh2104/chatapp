@@ -7,10 +7,8 @@ Class Chat{
         $this->conn=Database::getConnection();
     }
 
-    public function get_chat(){
+    public function get_chat($outgoing_id,$incoming_id){
         if (isset($_SESSION['unique_id'])) {
-            $outgoing_id=mysqli_real_escape_string($this->conn, $_POST['outgoing_id']);
-            $incoming_id=mysqli_real_escape_string($this->conn, $_POST['incoming_id']);
             $output="";
             $sql="select * from message 
             left join users on users.unique_id=message.outgoing_id
@@ -27,7 +25,7 @@ Class Chat{
                     </div>';
                     } else {
                         $output .='<div class="chat incoming">
-                            <img src="php/images/'.$row['image'].'" alt="">
+                            <img src="asset/image/'.$row['image'].'" alt="">
                             <div class="details">
                                 <p>'.$row['msg'].'</p>
                             </div>
@@ -41,10 +39,8 @@ Class Chat{
         }
     }
 
-    public function insert_chat(){
+    public function insert_chat($outgoing_id,$incoming_id){
         if (isset($_SESSION['unique_id'])) {
-            $outgoing_id=mysqli_real_escape_string($this->conn, $_POST['outgoing_id']);
-            $incoming_id=mysqli_real_escape_string($this->conn, $_POST['incoming_id']);
             $message=mysqli_real_escape_string($this->conn, $_POST['message']);
         
             if (!empty($message)) {

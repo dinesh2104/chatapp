@@ -13,7 +13,6 @@ Class User{
         $lname=escape_stringfun($lname);
         $email=escape_stringfun($email);
         $password=escape_stringfun($password);
-        print_r($email);
         if (!empty($fname) && !empty($lname) && !empty($email) && !empty($password)) {
             if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 $sql=mysqli_query($this->conn, "select email from users where email='{$email}'");
